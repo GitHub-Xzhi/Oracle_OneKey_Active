@@ -64,8 +64,8 @@ while true; do
 
     # 检查文件行数
     line_count=$(wc -l <"$log_file")
-    # 如果文件行数大于90行，才执行删除操作
-    if [ $line_count -gt 90 ]; then
+    # 如果文件行数大于270行，才执行删除操作
+    if [ $line_count -gt 270 ]; then
         # 为了节约空间，删除日志前90行内容
         sed -i '1,90d' "$log_file"
     fi
