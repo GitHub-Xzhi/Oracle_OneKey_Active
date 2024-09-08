@@ -7,6 +7,23 @@ yellow='\033[0;33m'
 plain='\033[0m'
 cur_dir=$(pwd)
 
+# Vultr 在全球有 15 个数据中心，大家可以通过以下的测试链接来检测以下，自己所在区域使用哪个数据中心速度最快。
+# test_link="https://fra-de-ping.vultr.com/vultr.com.1000MB.bin"  # 法兰克福（德国)
+# test_link="https://par-fr-ping.vultr.com/vultr.com.1000MB.bin"  # 巴黎（法国)
+# test_link="https://ams-nl-ping.vultr.com/vultr.com.1000MB.bin"  # 阿姆斯特丹（荷兰）
+# test_link="https://lon-gb-ping.vultr.com/vultr.com.1000MB.bin"  # 伦敦（英国）
+# test_link="https://nj-us-ping.vultr.com/vultr.com.1000MB.bin"  # 纽约（美国）
+# test_link="https://il-us-ping.vultr.com/vultr.com.1000MB.bin"  # 芝加哥（美国）
+# test_link="https://ga-us-ping.vultr.com/vultr.com.1000MB.bin"  # 亚特兰大（美国）
+# test_link="https://fl-us-ping.vultr.com/vultr.com.1000MB.bin"  # 迈阿密（美国）
+# test_link="https://tx-us-ping.vultr.com/vultr.com.1000MB.bin"  # 达拉斯（美国）
+# test_link="https://wa-us-ping.vultr.com/vultr.com.1000MB.bin"  # 西雅图（美国）
+# test_link="https://sjo-ca-us-ping.vultr.com/vultr.com.1000MB.bin"  # 硅谷（美国）
+test_link="https://lax-ca-us-ping.vultr.com/vultr.com.1000MB.bin"  # 洛杉矶（美国）
+# test_link="https://syd-au-ping.vultr.com/vultr.com.1000MB.bin"  # 悉尼（澳大利亚）
+# test_link="https://hnd-jp-ping.vultr.com/vultr.com.1000MB.bin"  # 东京（日本）
+# test_link="https://sgp-ping.vultr.com/vultr.com.1000MB.bin"  # 新加坡
+
 # 定义路径
 log_file="/root/anti-recycling/Oracle_OneKey_Active.log"
 download_file="/root/anti-recycling/vultr.com.1000MB.bin"
@@ -56,7 +73,7 @@ while true; do
     time=$(date "+%Y-%m-%d %H:%M:%S")
     echo "${time} Start Download " >>"$log_file"
 
-    wget --limit-rate=10M https://nj-us-ping.vultr.com/vultr.com.1000MB.bin -O "$download_file"
+    wget --limit-rate=10M "$test_link" -O "$download_file"
 
     clear
     rm -f /root/nohup.out
